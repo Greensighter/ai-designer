@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<title>Join the waitlist · Greensighter AI UI/UX Designer</title>
+<meta name="description" content="Join the waitlist for your AI UI/UX Designer. Founding teams start with 10 free tickets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css?v=1792608769">
+<link rel="stylesheet" href="assets/css/waitlist.css?v=1792608769">
+</head>
+<body class="wl-page">
+
+  <main class="wl-main">
+    <div class="wl-brand">
+      <a class="logo" href="index.html" aria-label="Greensighter home">
+      <span class="logo__mark"><img src="assets/img/logo-mark.svg" width="22" height="9" alt=""></span>
+      <img src="assets/img/logo-wordmark.svg" width="120" height="19" alt="">
+    </a>
+      <span class="wl-brand__sep" aria-hidden="true"></span>
+      <p class="wl-brand__mail">Prefer direct mail?<a href="mailto:hello@greensighter.com">hello@greensighter.com</a></p>
+    </div>
+    <section class="wl-intro" aria-labelledby="wl-title">
+      <div class="wl-intro__body">
+        <h1 class="wl-title" id="wl-title">Your next designer.<br>Worth the wait.</h1>
+        <p class="wl-lead">Join the waitlist for your AI UI/UX Designer. We’re inviting a small group of founding teams to help shape what comes next.</p>
+
+        <div class="wl-offer">
+          <span class="wl-offer__num">10</span>
+          <div><strong>Start with 10 free tickets</strong><span>For founding teams, once invited and onboarded.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wl-card" aria-labelledby="wl-form-title">
+      <form class="wl-form" id="wl-form" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="waitlist">
+        <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+        <h2 class="wl-card__title" id="wl-form-title">Join the waitlist</h2>
+        <p class="wl-card__sub">Tell us a little about your team. All fields are required.</p>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-first">First name</label>
+            <input id="f-first" name="first_name" type="text" autocomplete="given-name" placeholder="First name" required>
+            <p class="field__err" id="f-first-err" hidden>Please enter your first name.</p>
+          </div>
+          <div class="field">
+            <label for="f-last">Last name</label>
+            <input id="f-last" name="last_name" type="text" autocomplete="family-name" placeholder="Last name" required>
+            <p class="field__err" id="f-last-err" hidden>Please enter your last name.</p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-email">Work email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+          <p class="field__err" id="f-email-err" hidden>Please enter a valid work email.</p>
+        </div>
+        <div class="field">
+          <label for="f-site">Company website</label>
+          <input id="f-site" name="website" type="url" inputmode="url" autocomplete="url" placeholder="yourcompany.com" required>
+          <p class="field__err" id="f-site-err" hidden>Please enter your company website.</p>
+        </div>
+        <div class="field">
+          <label for="f-size">Team size</label>
+          <div class="select">
+            <select id="f-size" name="team_size" required>
+              <option value="" selected disabled>Select team size</option>
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>200+</option>
+            </select>
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="field__err" id="f-size-err" hidden>Please choose your team size.</p>
+        </div>
+        <div class="field">
+          <label for="f-tool">Project management tool</label>
+          <div class="select">
+            <select id="f-tool" name="pm_tool" required>
+              <option value="" selected disabled>Select your tool</option>
+              <option>Jira</option>
+              <option>Linear</option>
+              <option>Asana</option>
+              <option>ClickUp</option>
+              <option>Monday.com</option>
+              <option>Trello</option>
+              <option>Notion</option>
+              <option>GitHub Projects</option>
+              <option>Azure DevOps</option>
+              <option>Other</option>
+            </select>
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="field__err" id="f-tool-err" hidden>Please choose your project management tool.</p>
+        </div>
+        <div class="field">
+          <label for="f-designers">Number of designers in company</label>
+          <div class="select">
+            <select id="f-designers" name="designers" required>
+              <option value="" selected disabled>Select number of designers</option>
+              <option>None yet</option>
+              <option>1</option>
+              <option>2–5</option>
+              <option>6–10</option>
+              <option>11+</option>
+            </select>
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="field__err" id="f-designers-err" hidden>Please choose the number of designers.</p>
+        </div>
+
+        <button class="wl-submit" type="submit">Join Waitlist</button>
+        <p class="wl-form__status" role="alert" hidden></p>
+        <p class="wl-legal">By joining, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+      </form>
+
+      <div class="wl-success" id="wl-success" hidden tabindex="-1">
+        <span class="wl-success__ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M5 10.5l3.2 3.2L15 7" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h2 class="wl-card__title">You’re on the list</h2>
+        <p class="wl-card__sub">We’ll email <strong id="wl-success-email">you</strong> as soon as a founding-team spot opens.</p>
+        <a class="wl-success__back" href="index.html">Back to Greensighter</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wl-footer">
+    <ul class="wl-assure">
+      <li><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#000"/><path d="M6 10.3l2.6 2.6L14 7.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Only 20 founding spots</span></li>
+      <li><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#000"/><path d="M6 10.3l2.6 2.6L14 7.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>We’ll sign an NDA before onboarding</span></li>
+      <li><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#000"/><path d="M6 10.3l2.6 2.6L14 7.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Every screen reviewed by a senior designer</span></li>
+    </ul>
+    <p class="wl-faq">Have questions? <a href="index.html#faq">Check our FAQ</a></p>
+  </footer>
+
+<script src="assets/js/waitlist.js?v=1792608769" defer></script>
+</body>
+</html>
