@@ -85,7 +85,7 @@ var WAITLIST_ENDPOINT = '';
         body: JSON.stringify(data)
       }).then(function (r) { if (!r.ok) throw new Error('Request failed'); });
     } else if (onNetlify) {
-      var body = new URLSearchParams({ 'form-name': 'waitlist', 'bot-field': f.namedItem('bot-field').value });
+      var body = new URLSearchParams({ 'form-name': 'waitlist', 'subject': f.namedItem('subject').value, 'bot-field': f.namedItem('bot-field').value });
       Object.keys(data).forEach(function (k) { if (k !== 'source') body.append(k, data[k]); });
       send = fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() })
         .then(function (r) { if (!r.ok) throw new Error('Request failed'); });
