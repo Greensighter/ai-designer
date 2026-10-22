@@ -340,3 +340,27 @@
     else { img.addEventListener('load', done, { once: true }); img.addEventListener('error', done, { once: true }); }
   });
 })();
+
+/* Benefits: Greensighter vs generic AI — both phones switch together */
+(function () {
+  var vs = document.querySelector('.panel.vs');
+  if (!vs) return;
+  var cols = vs.querySelectorAll('.vs__phone'), dots = vs.querySelectorAll('.vs__dots button');
+  var n = dots.length, i = 0, MS = 4500, timer = null, visible = false;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  vs.style.setProperty('--vs-ms', MS + 'ms');
+  function show(k) {
+    i = (k + n) % n;
+    cols.forEach(function (c) { c.querySelectorAll('.vs__shot').forEach(function (s, j) { s.classList.toggle('is-on', j === i); }); });
+    dots.forEach(function (d, j) {
+      d.classList.remove('is-on'); void d.offsetWidth;
+      d.classList.toggle('is-on', j === i); d.setAttribute('aria-selected', j === i ? 'true' : 'false');
+    });
+  }
+  function start() { stop(); if (!reduce && visible) timer = setInterval(function () { show(i + 1); }, MS); }
+  function stop() { if (timer) clearInterval(timer); timer = null; }
+  dots.forEach(function (d, j) { d.addEventListener('click', function () { show(j); start(); }); });
+  vs.addEventListener('mouseenter', function () { stop(); vs.classList.add('is-paused'); });
+  vs.addEventListener('mouseleave', function () { vs.classList.remove('is-paused'); show(i); start(); });
+  new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) { show(i); start(); } else stop(); }, { threshold: 0.35 }).observe(vs);
+})();

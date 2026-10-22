@@ -54,8 +54,6 @@ When CSS/JS changes, bump the `?v=` number on their links in `index.html` and `w
 
 ## Before launch
 
-- Replace the product panel image (`assets/img/product-panel.webp`). It's currently a
-  placeholder screenshot of another company's app.
 - Check the Linear and ClickUp icons in the hero badge (hand-drawn approximations).
 - Set the Blog link in the footer and the Terms / Privacy Policy links on the waitlist page.
 - Confirm the FAQ promises (NDA, delivery times).
