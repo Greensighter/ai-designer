@@ -499,3 +499,20 @@ a.ticker:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
 .vs__dots.is-paused button.is-on::after { animation-play-state: paused; }
 .panel.vs { padding-top: 0; }
 @media (max-width: 720px) { .vs__dots { padding: 0 2px; } .panel.vs { padding-top: 28px; } }
+/* Comparison block v2 (Figma 450:658): painting frame around a light stage */
+.panel.vs { height: auto; padding: 32px; gap: 0; background: #3E5A3A; }
+.panel.vs::after { display: none; }
+.vs__stage { width: 100%; justify-content: center; gap: 0; padding: 40px; border-radius: 24px; background: var(--bg); box-shadow: 0 30px 60px -40px rgba(0, 0, 0, 0.45); }
+.vs__col { gap: 20px; }
+.vs__tag, .vs__tag--us { height: auto; padding: 4px 12px; border: 1px solid var(--line); background: #fff; color: var(--text); font-size: 14px; font-weight: 500; line-height: 1.3; box-shadow: none; }
+.vs__phone { width: 240px; border-width: 4px; border-radius: 32px; box-shadow: 0 30px 50px -34px rgba(0, 0, 0, 0.45); }
+.vs__vs { margin: 44px 64px 0; width: 32px; height: 32px; background: var(--surface); color: #8A8A8A; font-size: 12px; box-shadow: none; }
+@media (max-width: 720px) {
+  .panel.vs { padding: 12px; }
+  .vs__stage { padding: 20px 10px; gap: 0; }
+  .vs__col { gap: 12px; }
+  .vs__phone { width: calc((100vw - 140px) / 2); max-width: 150px; border-width: 3px; border-radius: 22px; }
+  .vs__tag, .vs__tag--us { padding: 3px 8px; font-size: 11px; }
+  .vs__vs { margin: 30px 8px 0; width: 24px; height: 24px; font-size: 10px; }
+}
+@media (max-width: 720px) { .vs__long { display: none; } .vs__tag, .vs__tag--us { white-space: nowrap; } }
