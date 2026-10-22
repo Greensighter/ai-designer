@@ -342,7 +342,7 @@
 })();
 
 /* Benefits: Greensighter vs generic AI — both phones switch together.
-   Hover pauses the current step; leaving resumes it from where it stopped. */
+   Runs continuously while the block is on screen. */
 (function () {
   var vs = document.querySelector('.panel.vs');
   if (!vs) return;
@@ -375,8 +375,6 @@
   }
   function resume() { paused = false; bar.classList.remove('is-paused'); run(); }
   dots.forEach(function (d, j) { d.addEventListener('click', function () { show(j); run(); }); });
-  vs.addEventListener('mouseenter', pause);
-  vs.addEventListener('mouseleave', resume);
   new IntersectionObserver(function (es) {
     var was = visible; visible = es[0].isIntersecting;
     if (visible && !was) { show(i); run(); }
