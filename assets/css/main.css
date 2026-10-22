@@ -492,3 +492,10 @@ a.ticker:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
 .vs__dots button::before { content: ""; position: absolute; top: -10px; bottom: -10px; left: 0; right: 0; }
 .vs__dots button.is-done::after { content: ""; position: absolute; inset: 0; background: #fff; }
 @media (max-width: 720px) { .vs__dots { top: 12px; left: 12px; right: 12px; gap: 4px; } .vs__dots button { height: 2.5px; } .panel.vs { padding-top: 34px; } }
+/* Story bars: dark, above the image */
+.vs__dots { position: static; top: auto; left: auto; right: auto; width: 100%; padding: 0 4px; z-index: auto; }
+.vs__dots button { background: rgba(13, 15, 12, 0.14); }
+.vs__dots button.is-on::after, .vs__dots button.is-done::after { background: var(--ink); }
+.vs__dots.is-paused button.is-on::after { animation-play-state: paused; }
+.panel.vs { padding-top: 0; }
+@media (max-width: 720px) { .vs__dots { padding: 0 2px; } .panel.vs { padding-top: 28px; } }
