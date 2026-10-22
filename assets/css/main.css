@@ -517,3 +517,8 @@ a.ticker:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
 }
 @media (max-width: 720px) { .vs__long { display: none; } .vs__tag, .vs__tag--us { white-space: nowrap; } }
 @media (min-width: 721px) { .vs__phone { width: 252px; } }
+/* Mobile: keep the running row hidden (the a.ticker rule above was overriding it)
+   and never let anything widen the page sideways */
+@media (max-width: 720px) { a.ticker { display: none; } }
+html, body { overflow-x: clip; }
+.ticker { max-width: 100%; }
