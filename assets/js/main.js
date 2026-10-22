@@ -354,7 +354,8 @@
     cols.forEach(function (c) { c.querySelectorAll('.vs__shot').forEach(function (s, j) { s.classList.toggle('is-on', j === i); }); });
     dots.forEach(function (d, j) {
       d.classList.remove('is-on'); void d.offsetWidth;
-      d.classList.toggle('is-on', j === i); d.setAttribute('aria-selected', j === i ? 'true' : 'false');
+      d.classList.toggle('is-on', j === i); d.classList.toggle('is-done', j < i);
+      d.setAttribute('aria-selected', j === i ? 'true' : 'false');
     });
   }
   function start() { stop(); if (!reduce && visible) timer = setInterval(function () { show(i + 1); }, MS); }
