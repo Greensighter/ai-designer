@@ -341,12 +341,14 @@
   });
 })();
 
-/* Benefits: Greensighter vs generic AI — both phones switch together */
+/* Benefits: Greensighter vs generic AI — both phones switch together.
+   Hover pauses the current step; leaving resumes it from where it stopped. */
 (function () {
   var vs = document.querySelector('.panel.vs');
   if (!vs) return;
   var cols = vs.querySelectorAll('.vs__phone'), dots = document.querySelectorAll('.vs__dots button'), bar = document.querySelector('.vs__dots');
-  var n = dots.length, i = 0, MS = 4500, timer = null, visible = false;
+  var n = dots.length, i = 0, MS = 4500, timer = null, visible = false, paused = false;
+  var startedAt = 0, remaining = MS;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   bar.style.setProperty('--vs-ms', MS + 'ms');
   function show(k) {
@@ -357,11 +359,27 @@
       d.classList.toggle('is-on', j === i); d.classList.toggle('is-done', j < i);
       d.setAttribute('aria-selected', j === i ? 'true' : 'false');
     });
+    remaining = MS;
   }
-  function start() { stop(); if (!reduce && visible) timer = setInterval(function () { show(i + 1); }, MS); }
-  function stop() { if (timer) clearInterval(timer); timer = null; }
-  dots.forEach(function (d, j) { d.addEventListener('click', function () { show(j); start(); }); });
-  vs.addEventListener('mouseenter', function () { stop(); bar.classList.add('is-paused'); });
-  vs.addEventListener('mouseleave', function () { bar.classList.remove('is-paused'); show(i); start(); });
-  new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) { show(i); start(); } else stop(); }, { threshold: 0.35 }).observe(vs);
+  function run() {                       // count down what's left of the current step
+    clearTimeout(timer);
+    if (reduce || !visible || paused) return;
+    startedAt = Date.now();
+    timer = setTimeout(function () { show(i + 1); run(); }, remaining);
+  }
+  function pause() {
+    if (paused) return;
+    paused = true; bar.classList.add('is-paused');
+    clearTimeout(timer);
+    remaining = Math.max(0, remaining - (Date.now() - startedAt));
+  }
+  function resume() { paused = false; bar.classList.remove('is-paused'); run(); }
+  dots.forEach(function (d, j) { d.addEventListener('click', function () { show(j); run(); }); });
+  vs.addEventListener('mouseenter', pause);
+  vs.addEventListener('mouseleave', resume);
+  new IntersectionObserver(function (es) {
+    var was = visible; visible = es[0].isIntersecting;
+    if (visible && !was) { show(i); run(); }
+    else if (!visible) clearTimeout(timer);
+  }, { threshold: 0.35 }).observe(vs);
 })();
