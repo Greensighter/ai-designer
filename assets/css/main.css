@@ -516,3 +516,4 @@ a.ticker:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
   .vs__vs { margin: 30px 8px 0; width: 24px; height: 24px; font-size: 10px; }
 }
 @media (max-width: 720px) { .vs__long { display: none; } .vs__tag, .vs__tag--us { white-space: nowrap; } }
+@media (min-width: 721px) { .vs__phone { width: 252px; } }
